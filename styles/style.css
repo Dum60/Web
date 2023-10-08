@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'AutourOne';
+    src: url("../fonts/AutourOne-Regular.ttf");
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    font-family: AutourOne;
+    background-color: dimgray;
+    margin: 0;
+}
+
+footer {
+    display: flex;
+    background-color: black;
+    & a {
+       color: dimgray;
+    }
+    & .nav-list {
+        flex-direction: column;
+    }
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    & a {
+        padding: 8px 16px;
+    }
+}
+
+.banner-wrapper {
+    background-color: black;
+    display: flex;
+    background-image: url("images/banner.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.back-to-top {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.social-links-wrapper {
+    margin-left: 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: unsafe center;
+}
+
+.product {
+    text-align: center;
+    & img {
+        border-radius: 20px;
+        box-shadow: 0 0 15px 5px black;
+    }
+}
+
+.big-img {
+    display: none;
+    text-align: center;
+}
+
