@@ -3,75 +3,198 @@
     src: url("../fonts/AutourOne-Regular.ttf");
 }
 
+@font-face {
+    font-family: "Nosifer";
+    src: url("../fonts/Nosifer-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Regular.ttf");
+}
+
 a {
     text-decoration: none;
-    color: black;
+    color: #212529;
 }
 
 body {
-    font-family: AutourOne;
-    background-color: dimgray;
+    overscroll-behavior: none;
+    font-family: Roboto;
+    background-color: #f8f9fa;
     margin: 0;
+    padding: 0;
 }
 
 footer {
     display: flex;
-    background-color: black;
+    justify-content: space-between;
+    background-color: #212529;
     & a {
-       color: dimgray;
-    }
-    & .nav-list {
-        flex-direction: column;
+       color: #f8f9fa;
     }
     align-items: center;
 }
 
+.navigation-wrapper {
+    color: #212529;
+    padding-top: 10px;
+}
+
 .nav-list {
     list-style: none;
-    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 16px;
+    margin: 0;
     display: flex;
-    & a {
-        padding: 8px 16px;
-    }
+    justify-content: center;
+    transition: 1s ease-in-out;
+}
+
+.button {
+    box-shadow: rgba(0, 0, 0, 0.4) 0 1px 2px;
+    margin: 0 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    padding: 8px 16px;
+}
+
+.button:hover {
+    box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px, rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.button:active {
+    box-shadow: inset rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px;
 }
 
 .banner-wrapper {
-    background-color: black;
     display: flex;
-    background-image: url("../images/banner.png");
-    background-repeat: no-repeat;
-    background-position: center;
+    height: 15vw;
+    /*-webkit-mask-image: -webkit-gradient(linear, left 40%, left bottom,*/
+    /*from(rgba(0,0,0,1)), to(transparent));*/
 }
 
 .product-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-}
-
-.back-to-top {
-    margin-left: auto;
-    margin-right: 10px;
+    transition: 1s ease-in-out;
+    margin-bottom: 2vw;
 }
 
 .social-links-wrapper {
-    margin-left: 85px;
+    margin-left: 4vw;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: unsafe center;
+    padding: 10px;
+    z-index: 1;
+}
+
+.instagram,
+.telegram {
+    width: 5vw;
+    aspect-ratio: 1;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/bg.jpg") fixed;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 4.5vw;
+    justify-content: space-around;
+}
+
+.instagram {
+    -webkit-mask-image: url("../images/instagram.png");
+}
+
+.telegram {
+    -webkit-mask-image: url("../images/telegram.png");
 }
 
 .product {
+    box-shadow: rgba(0, 0, 0, 0.4) 0 1px 2px;
     text-align: center;
+    margin: 20px;
+    transition: 1s ease-in-out;
+    padding: 20px;
     & img {
-        border-radius: 20px;
-        box-shadow: 0 0 15px 5px black;
+        border-radius: 5px;
     }
 }
 
+.product:hover {
+    box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px, rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
 .big-img {
-    display: none;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/bg.jpg") fixed;
+    height: 40vw;
+    margin-bottom: 2vw;
+    display: flex;
+    align-content: stretch;
+}
+
+.big-text {
+    margin: 4vw;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    backdrop-filter: blur(6px);
+    color: #f8f9fa;
+}
+
+.logo-wrapper {
+    position: absolute;
+    width: 100%;
+    z-index: 0;
     text-align: center;
+    align-self: center;
+    & a {
+        font-family: Nosifer;
+        font-size: 8vw;
+        color: transparent;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/bg.jpg") fixed;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+}
+
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    & .button {
+        margin: 10px;
+    }
+}
+
+.back-to-top {
+    width: 100px;
+}
+
+.spacer {
+    margin: 0 10px;
+    padding: 0 16px;
+    width: 100px;
+}
+
+@media (max-width: 768px){
+    .back-to-top {
+        display: none;
+    }
+    .spacer {
+        display: none;
+    }
+    footer {
+        justify-content: center;
+    }
+    .social-links-wrapper {
+        display: none;
+    }
 }
 
