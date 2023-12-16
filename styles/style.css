@@ -1,17 +1,13 @@
-@font-face {
-    font-family: 'AutourOne';
-    src: url("../fonts/AutourOne-Regular.ttf");
-}
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&family=Roboto&display=swap');
 
-@font-face {
-    font-family: "Nosifer";
-    src: url("../fonts/Nosifer-Regular.ttf");
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url("../fonts/Roboto-Regular.ttf");
-}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+html{height:100%}
+body{line-height:1}
+ol,ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
+table{border-collapse:collapse;border-spacing:0}
 
 a {
     text-decoration: none;
@@ -19,6 +15,10 @@ a {
 }
 
 body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     overscroll-behavior: none;
     font-family: Roboto;
     background-color: #f8f9fa;
@@ -27,8 +27,9 @@ body {
 }
 
 footer {
-    display: flex;
-    justify-content: space-between;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
     background-color: #212529;
     & a {
        color: #f8f9fa;
@@ -43,34 +44,44 @@ footer {
 
 .nav-list {
     list-style: none;
-    padding-top: 10px;
-    padding-bottom: 16px;
+    padding: 16px 0;
     margin: 0;
     display: flex;
     justify-content: center;
     transition: 1s ease-in-out;
 }
 
-.button {
-    box-shadow: rgba(0, 0, 0, 0.4) 0 1px 2px;
-    margin: 0 10px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-    padding: 8px 16px;
+.nav-active {
+    background: #f8f9fa;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
 }
 
-.button:hover {
+.tile {
+    box-shadow: rgba(0, 0, 0, 0.4) 0 1px 2px;
+    transition: all 0.5s ease-in-out;
+}
+
+.tile:hover {
     box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px, rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
     transform: translateY(-2px);
 }
 
+.button {
+    margin: 0 10px;
+    text-align: center;
+    cursor: pointer;
+    padding: 8px 16px;
+}
+
 .button:active {
-    box-shadow: inset rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px;
+    background: #e9ecef;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
 }
 
 .banner-wrapper {
-    display: flex;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
     height: 15vw;
     /*-webkit-mask-image: -webkit-gradient(linear, left 40%, left bottom,*/
     /*from(rgba(0,0,0,1)), to(transparent));*/
@@ -90,7 +101,6 @@ footer {
     flex-direction: column;
     justify-content: space-around;
     padding: 10px;
-    z-index: 1;
 }
 
 .instagram,
@@ -113,24 +123,17 @@ footer {
 }
 
 .product {
-    box-shadow: rgba(0, 0, 0, 0.4) 0 1px 2px;
     text-align: center;
     margin: 20px;
-    transition: 1s ease-in-out;
     padding: 20px;
     & img {
         border-radius: 5px;
     }
 }
 
-.product:hover {
-    box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px, rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
-    transform: translateY(-2px);
-}
-
 .big-img {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/bg.jpg") fixed;
-    height: 40vw;
+    height: 50vw;
     margin-bottom: 2vw;
     display: flex;
     align-content: stretch;
@@ -139,23 +142,46 @@ footer {
 .big-text {
     margin: 4vw;
     border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
+    grid-template-rows: 20% 40% 10% 20% 10%;
     flex-grow: 1;
     backdrop-filter: blur(6px);
     color: #f8f9fa;
+    & h1 {
+        color: #e9ecef;
+        grid-row: 2;
+        font-size: 7vw;
+        font-weight: bold;
+        flex-basis: 80%;
+    }
+}
+
+.big-button {
+    grid-row: 4;
+    padding: 2vw 3vw;
+    font-size: calc(10px + 1vw);
+    border-radius: 10px;
+    font-weight: bolder;
+    color: #f8f9fa;
+        background: rgba(256, 256, 256, 0.25);
 }
 
 .logo-wrapper {
     position: absolute;
+.big-button:hover {
+    color: #212529;
+    background-color: rgba(256, 256, 256, 0.75);
+}
+
+.logo-wrapper {
+    grid-column: 2;
     width: 100%;
-    z-index: 0;
     text-align: center;
     align-self: center;
     & a {
         font-family: Nosifer;
-        font-size: 8vw;
+        font-size: calc(15px + 6vw);
         color: transparent;
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/bg.jpg") fixed;
         -webkit-background-clip: text;
@@ -164,6 +190,8 @@ footer {
 }
 
 .footer-list {
+    width: fit-content;
+    grid-column: 2;
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -173,21 +201,12 @@ footer {
     }
 }
 
-.back-to-top {
-    width: 100px;
-}
-
-.spacer {
-    margin: 0 10px;
-    padding: 0 16px;
-    width: 100px;
+.load {
+    color: #f8f9fa;
 }
 
 @media (max-width: 768px){
     .back-to-top {
-        display: none;
-    }
-    .spacer {
         display: none;
     }
     footer {
