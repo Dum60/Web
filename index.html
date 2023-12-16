@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/navActive.js"></script>
     <script src="scripts/loadTime.js"></script>
+    <script src="scripts/order.js"></script>
 </head>
 <body>
     <header>
@@ -31,7 +32,7 @@
                     <a href="index.html">главная</a>
                 </li>
                 <li class="button tile">
-                    <a href="gallery.html">галерея</a>
+                    <a href="gallery.html">галлерея</a>
                 </li>
                 <li class="button tile">
                     <a href="posts.html">посты</a>
@@ -46,10 +47,37 @@
         <section>
             <div class="big-img">
                 <div class="big-text">
-                    <p>some text</p>
+                    <h1>Feel the custom</h1>
+                    <a href="#popup-wrapper" class="big-button" onclick="loadOrder()">
+                        <p>get your own</p>
+                    </a>
                 </div>
             </div>
         </section>
+        <div id="popup-wrapper" class="popup-wrapper">
+            <div class="popup-content">
+                <form class="orderForm">
+                    <div>
+                        <label for="type">Тип вещи</label>
+                        <select id="type">
+                            <option value="t-shirt">футболка</option>
+                            <option value="trousers">штаны</option>
+                            <option value="hoodie">толстовка</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="idea">идея</label>
+                        <textarea id="idea" rows="4"></textarea>
+                    </div>
+                    <button onclick="saveOrder()">сделать заказ</button>
+                </form>
+                <div id="orderSummary"></div>
+                <a href="#"
+                   class="popup-close">
+                    ×
+                </a>
+            </div>
+        </div>
         <section>
             <div class="product-grid">
                 <div class="product tile">
