@@ -1,0 +1,16 @@
+{
+  "photos": [
+    {
+      "id": 1,
+      "source": "images/prod1.jpg"
+    },
+    {
+      "id": 2,
+      "source": "images/prod2.jpg"
+    },
+    {
+      "id": 3,
+      "source": "images/prod3.jpg"
+    }
+  ]
+}
