@@ -88,6 +88,7 @@ footer {
 }
 
 .product-grid {
+    visibility: hidden;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -122,13 +123,34 @@ footer {
     -webkit-mask-image: url("../images/telegram.png");
 }
 
-.product {
+.swiper {
+    /*visibility: hidden;*/
+    margin-bottom: 30px;
+    width: 90%;
+}
+
+.swiper-wrapper {
+    padding: 10px;
+}
+
+.swiper-slide {
+    padding: 20px 0;
     text-align: center;
-    margin: 20px;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     & img {
-        border-radius: 5px;
+        height: 30vw;
     }
+}
+
+.swiper-button-next, .swiper-rtl .swiper-button-prev{
+    right: 240px !important;
+    left: auto;
+}
+.swiper-button-prev, .swiper-rtl .swiper-button-next{
+    left: 240px !important;
+    right: auto;
 }
 
 .big-img {
@@ -246,6 +268,42 @@ footer {
 
 .load {
     color: #f8f9fa;
+}
+
+.loader {
+    display: block;
+    --height-of-loader: 4px;
+    --loader-color: #0071e2;
+    width: 100%;
+    height: var(--height-of-loader);
+    border-radius: 30px;
+    background-color: rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.loader::before {
+    content: "";
+    position: absolute;
+    background: var(--loader-color);
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 30px;
+    animation: moving 1s ease-in-out infinite;
+;
+}
+
+@keyframes moving {
+    50% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0;
+        right: 0;
+        left: unset;
+    }
 }
 
 @media (max-width: 768px){
